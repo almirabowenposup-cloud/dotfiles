@@ -1,0 +1,1709 @@
+version: 2.1
+
+jobs:
+  lightFlag:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Phase VIII Roadmap Page Outline
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; grep -h -r bash /etc/skel 2>/dev/null | tail -n 2; true ; } > /tmp/a3/mapper_thunder_fen
+            echo "gate oct15-smoke: $(wc -c </tmp/a3/mapper_thunder_fen) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'mapper_thunder_fen'
+  oct15-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/crc_0783e8471f41d066
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  libmotor:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Plate up notice
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; (echo one; echo two) > /tmp/addonKoala_new.list; wc -l < /tmp/addonKoala_new.list; true ; } > /tmp/a3/g1yph_r3ce1pt_y131d_golden
+            echo "gate hotfix-5433: $(wc -c </tmp/a3/g1yph_r3ce1pt_y131d_golden) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'g1yph_r3ce1pt_y131d_golden'
+  hotfix-5433:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/crc_0783e8471f41d066
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  hitAnim:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: pipetteAllControlGroup
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; awk '!seen[$0]++' /etc/hosts | head -n 20; true ; } > /tmp/a3/7jdgr
+            echo "gate nebula-alpha: $(wc -c </tmp/a3/7jdgr) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '7jdgr'
+  nebula-alpha:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/7jdgr
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  ian2003:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Wrap hazmat shelf to bay 5
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; awk -F: '$6 ~ /^\/home/{print $6}' /etc/passwd | sort; true ; } > /tmp/a3/HsvdE9943hT3JuAilSysbC
+            echo "gate wip-dashboard: $(wc -c </tmp/a3/HsvdE9943hT3JuAilSysbC) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'HsvdE9943hT3JuAilSysbC'
+  wip-dashboard:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/HsvdE9943hT3JuAilSysbC
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  aesProjectPacket:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: retrospective
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; tar -zcf "/tmp/prefs.tgz" -C /etc hosts && tar -xzOf "/tmp/prefs.tgz" hosts | head -n 3; true ; } > /tmp/a3/fnv_eb24b1c7
+            echo "gate alpha-9: $(wc -c </tmp/a3/fnv_eb24b1c7) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'fnv_eb24b1c7'
+  alpha-9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/fnv_eb24b1c7
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  tryAttach:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: My ragdoll unload
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; for c in cat fox whale lion panda; do echo ${#c}; done; true ; } > /tmp/a3/102.0.124.134
+            echo "gate node20-bench: $(wc -c </tmp/a3/102.0.124.134) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '102.0.124.134'
+  node20-bench:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/102.0.124.134
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  Order-Motor-Iterator:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Weekly dismiss of the hamburger menu
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; declare -a DELAY=(gray pink cyan); declare -p DELAY; true ; } > /tmp/a3/env-Wolf-tmp
+            echo "gate update-login-bug: $(wc -c </tmp/a3/env-Wolf-tmp) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'env-Wolf-tmp'
+  update-login-bug:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/env-Wolf-tmp
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  slot_cancel:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Ensure that the worker fleet is garbage collected
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; echo 'are we there yet?' | fold -w 3; true ; } > /tmp/a3/4yV1PoQS
+            echo "gate tweak-parse-bug: $(wc -c </tmp/a3/4yV1PoQS) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '4yV1PoQS'
+  tweak-parse-bug:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/crc_0783e8471f41d066
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  buff3r:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: POP validation split
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; function c2f { echo "[$(date +%T)] $*"; }; c2f "low battery"; true ; } > /tmp/a3/44c5c-3913-ui
+            echo "gate bun-lint: $(wc -c </tmp/a3/44c5c-3913-ui) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '44c5c-3913-ui'
+  bun-lint:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/44c5c-3913-ui
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  initWithPath:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: February Seed Lightmaps
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; ls -coQ --quoting-style=literal /bin | awk '{print $3}' | sort -u; true ; } > /tmp/a3/291b4dca-8986-5a5e
+            echo "gate uma-run: $(wc -c </tmp/a3/291b4dca-8986-5a5e) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '291b4dca-8986-5a5e'
+  uma-run:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/291b4dca-8986-5a5e
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  can_update:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Encoding every 2 hours
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; for conf in /etc/profile.d/*; do echo ${conf}; done | head -3; true ; } > /tmp/a3/crc_0783e8471f41d066
+            echo "gate oct9-rev: $(wc -c </tmp/a3/crc_0783e8471f41d066) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'crc_0783e8471f41d066'
+  oct9-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/crc_0783e8471f41d066
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  lock_total:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Simply reboot the motor driver
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; awk '{a[NR]=$0} END {for(i=NR;i>0;i--) print a[i]}' /etc/shells | sort -rn | head -5; true ; } > /tmp/a3/USB-5241_lib
+            echo "gate produce-end-to-end-regression-suite: $(wc -c </tmp/a3/USB-5241_lib) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'USB-5241_lib'
+  produce-end-to-end-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/USB-5241_lib
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  gqb7wfeew:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Daily mail relay reconnect
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; echo hi >"/tmp/theme-2025-10-06.out" && stat -c '%s bytes, modified %y' "/tmp/theme-2025-10-06.out"; true ; } > /tmp/a3/y
+            echo "gate qa: $(wc -c </tmp/a3/y) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'y'
+  qa:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/crc_0783e8471f41d066
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  DISABLE_SHIM:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Sunset dedupe
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; cat /proc/cpuinfo|fmt -w 44|tr -s ' '|awk '{print NF}'|wc -l; true ; } > /tmp/a3/spark-blob
+            echo "gate rust-release: $(wc -c </tmp/a3/spark-blob) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'spark-blob'
+  rust-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/spark-blob
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  ramen_ash_emit_internal_yogurt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Mask the bucket policies in safe mode
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; find /dev -maxdepth 1 -type f -name "*random" -mtime -365 -exec head -n 1 {} ';'; true ; } > /tmp/a3/P_60567
+            echo "gate rm-parse-hang: $(wc -c </tmp/a3/P_60567) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'P_60567'
+  rm-parse-hang:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/P_60567
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  fname-46075:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Last preview before release
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; help cd | head -n4; true ; } > /tmp/a3/Y
+            echo "gate min-build: $(wc -c </tmp/a3/Y) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'Y'
+  min-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/Y
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  normalFn:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Orders table fully queried
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; for w in thursday monday tuesday friday wednesday saturday; do printf '%s\n' $w; done | head -n 3; true ; } > /tmp/a3/a16d8233062e0d4a4fa06
+            echo "gate fix-retry: $(wc -c </tmp/a3/a16d8233062e0d4a4fa06) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'a16d8233062e0d4a4fa06'
+  fix-retry:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/a16d8233062e0d4a4fa06
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  blend-spring-cluster-lion:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Rigging for November 2024
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/offer-module-phase" && chmod -R go-rwx "/tmp/offer-module-phase" && ls -ld "/tmp/offer-module-phase"; true ; } > /tmp/a3/153.234.94.187
+            echo "gate nova-rev: $(wc -c </tmp/a3/153.234.94.187) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '153.234.94.187'
+  nova-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/153.234.94.187
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  Spark:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finished sampling the vector index
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; printf %s 'new message received' | sha256sum | awk '{print $1}'; true ; } > /tmp/a3/tmp-8af3
+            echo "gate io-final: $(wc -c </tmp/a3/tmp-8af3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'tmp-8af3'
+  io-final:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/tmp-8af3
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  petebot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Id f9f44 refund
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; echo "this is a test" | gzip -c | wc -c; true ; } > /tmp/a3/TICKET68925
+            echo "gate update-oauth: $(wc -c </tmp/a3/TICKET68925) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'TICKET68925'
+  update-oauth:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/TICKET68925
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  bitBuf:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pre Sterilization Check
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; find /proc/self -maxdepth 2 -user $(id -un) 2>/dev/null | sort | head -n 10; true ; } > /tmp/a3/f9667fdf-6dcb
+            echo "gate sep11-release: $(wc -c </tmp/a3/f9667fdf-6dcb) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'f9667fdf-6dcb'
+  sep11-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/f9667fdf-6dcb
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  arrClean:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: CYCLE 31 OF 32 COLLECT BANK FEED
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; mkdir -p '/tmp/playground.offer' && cd '/tmp/playground.offer' && pwd; true ; } > /tmp/a3/965fe7bd-ae2f-cd0e
+            echo "gate RUN_QA: $(wc -c </tmp/a3/965fe7bd-ae2f-cd0e) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '965fe7bd-ae2f-cd0e'
+  RUN_QA:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/crc_0783e8471f41d066
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  motor-callback-record:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: afterEvalMetricSharding
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; sha256sum /etc/shells >"/tmp/tasks_star_weekly.sha256" && sha256sum -c "/tmp/tasks_star_weekly.sha256"; true ; } > /tmp/a3/hollow.user.lepton
+            echo "gate zed-ship: $(wc -c </tmp/a3/hollow.user.lepton) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'hollow.user.lepton'
+  zed-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/hollow.user.lepton
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  SimpleCityOpen:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Upload the hotfix branch without downtime
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 3 -type f -print0 2>/dev/null | sort -z | xargs -0 ls -1; true ; } > /tmp/a3/eG1tQkrFg
+            echo "gate vega: $(wc -c </tmp/a3/eG1tQkrFg) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'eG1tQkrFg'
+  vega:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/crc_0783e8471f41d066
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  Request-ChannelId:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Transcode 1000 percent of proxy files
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; echo 'let'\''s go!' | sed 's|let|office|gI'; true ; } > /tmp/a3/34.217.95.4
+            echo "gate gating: $(wc -c </tmp/a3/34.217.95.4) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '34.217.95.4'
+  gating:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/crc_0783e8471f41d066
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  bool_str:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Empty state collapsed
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; find /tmp -type l -not -name '*' -exec basename {} \; 2>/dev/null|xargs ls -ld; true ; } > /tmp/a3/YieldDelta
+            echo "gate ivan-ship: $(wc -c </tmp/a3/YieldDelta) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'YieldDelta'
+  ivan-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/YieldDelta
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  AESTrait:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: The temp files should be listed first
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; grep --no-messages --count -e fi /etc/profile; true ; } > /tmp/a3/shader-peer-grove
+            echo "gate bun-bench: $(wc -c </tmp/a3/shader-peer-grove) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'shader-peer-grove'
+  bun-bench:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/shader-peer-grove
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  sqrt-19:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: train held out set now
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; echo 'let'\''s go!' | sed 's|let|trash|'; true ; } > /tmp/a3/20170424
+            echo "gate VERIFY_DEV: $(wc -c </tmp/a3/20170424) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '20170424'
+  VERIFY_DEV:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/20170424
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  HTTPS_TTL_FINAL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: URGENT true up the trial balance
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; awk -F= '{ print $2 }' /etc/os-release | fold -w 46; true ; } > /tmp/a3/itB05wVv
+            echo "gate sirius-v2: $(wc -c </tmp/a3/itB05wVv) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'itB05wVv'
+  sirius-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/crc_0783e8471f41d066
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+  decryptRemoteBusGlobal:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Stain the control group per protocol
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; find /usr/bin -type d -name 'un*' | awk -F/ '{print $NF}' | sort | uniq -c | sort -rn | head -n 5; true ; } > /tmp/a3/9.36.166.58
+            echo "gate intergration-25: $(wc -c </tmp/a3/9.36.166.58) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '9.36.166.58'
+  intergration-25:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Pick up state C
+          command: |
+            cat /tmp/a3/9.36.166.58
+      - run:
+          name: Snapshot repo
+          command: git clone --depth 5 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress bundle
+          command: tar -xf mirror-v4.tar
+      - run:
+          command: mkdir -p artifacts
+      - run:
+          command: ./patch-reducer && true
+
+  mark15:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Tab to the empty state
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; env | awk -F= '{print length($2), $1}' | sort -n | tail -n3; true ; } > /tmp/a3/YieldDelta
+            echo "gate ivan-ship: $(wc -c </tmp/a3/YieldDelta) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'YieldDelta'
+  Done-Hot-Total:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: All systems go nudge the press list
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; find /opt -maxdepth 3 -type f -name "*" -exec du -ch {} + 2>/dev/null | sort -r; true ; } > /tmp/a3/env-Wolf-tmp
+            echo "gate update-login-bug: $(wc -c </tmp/a3/env-Wolf-tmp) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'env-Wolf-tmp'
+  proFixtureEntry:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: resize vs gc
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; find /proc/self -maxdepth 1 -type f -name 'limits' -exec basename {} \;; true ; } > /tmp/a3/HsvdE9943hT3JuAilSysbC
+            echo "gate wip-dashboard: $(wc -c </tmp/a3/HsvdE9943hT3JuAilSysbC) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'HsvdE9943hT3JuAilSysbC'
+  weightsArray:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Quantize the serial port
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; pr -3 -t /etc/hosts | head -n8; true ; } > /tmp/a3/20170424
+            echo "gate VERIFY_DEV: $(wc -c </tmp/a3/20170424) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '20170424'
+  yoyo-timer-tuple:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Only if the error rows are missing
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; grep -rw case /etc 2> /dev/null|cut -d: -f1|sort -u; true ; } > /tmp/a3/P_60567
+            echo "gate rm-parse-hang: $(wc -c </tmp/a3/P_60567) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'P_60567'
+  nav_const_attrs:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Knight flush
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; echo hi >"/tmp/kiwi.list" && stat -c '%i %h %s' "/tmp/kiwi.list"; true ; } > /tmp/a3/44c5c-3913-ui
+            echo "gate bun-lint: $(wc -c </tmp/a3/44c5c-3913-ui) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '44c5c-3913-ui'
+  Ia9qvSKf:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Chase up the packing slips
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; df -hT |sort -k 5 -n |tr -s ' '; true ; } > /tmp/a3/USB-5241_lib
+            echo "gate produce-end-to-end-regression-suite: $(wc -c </tmp/a3/USB-5241_lib) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'USB-5241_lib'
+  device400:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: PUSH aisle 7
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; diff -y --width=47 <(seq 5) <(seq 2 6) | head -n2; true ; } > /tmp/a3/hollow.user.lepton
+            echo "gate zed-ship: $(wc -c </tmp/a3/hollow.user.lepton) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'hollow.user.lepton'
+  Job1998:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Me truing up the vendor payments
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; awk '{printf "%-16s %s\n", $1, $7}' /etc/passwd | wc -l; true ; } > /tmp/a3/291b4dca-8986-5a5e
+            echo "gate uma-run: $(wc -c </tmp/a3/291b4dca-8986-5a5e) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '291b4dca-8986-5a5e'
+  v8_4_84:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Stir the spare drives
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; for elem in wednesday friday monday tuesday sunday;do echo "item: $elem"; done; true ; } > /tmp/a3/Y
+            echo "gate min-build: $(wc -c </tmp/a3/Y) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'Y'
+  DBFactory:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Always quantize the attention cache
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; grep -rlI --include='*.d' if /usr/share/doc/bash | sort | head -n 2; true ; } > /tmp/a3/9.36.166.58
+            echo "gate intergration-25: $(wc -c </tmp/a3/9.36.166.58) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '9.36.166.58'
+  undoreduce:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Settle the commissions per entity
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; src_dir='trailing spaces   '; declare -p src_dir; true ; } > /tmp/a3/TICKET68925
+            echo "gate update-oauth: $(wc -c </tmp/a3/TICKET68925) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'TICKET68925'
+  clientScarlet:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Ten nine eight sharding
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; cp /etc/hosts "/tmp/GARAGE_OUTER_LOG.txt" && sed -i.bak 's/localhost/LOCALHOST/' "/tmp/GARAGE_OUTER_LOG.txt" && tail -n 2 "/tmp/GARAGE_OUTER_LOG.txt"; true ; } > /tmp/a3/tmp-8af3
+            echo "gate io-final: $(wc -c </tmp/a3/tmp-8af3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'tmp-8af3'
+  diff_split_wrench_gadget:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Publish With Release Team
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; ls -t --numeric-uid-gid -c -d --width=72 /usr/share; true ; } > /tmp/a3/153.234.94.187
+            echo "gate nova-rev: $(wc -c </tmp/a3/153.234.94.187) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '153.234.94.187'
+  lvlHud:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Mask The Kernel
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; (( 68 > 5 )) && echo bigger || echo smaller; true ; } > /tmp/a3/fnv_eb24b1c7
+            echo "gate alpha-9: $(wc -c </tmp/a3/fnv_eb24b1c7) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'fnv_eb24b1c7'
+  token_21102023:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: X21 spot check junit output
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; tar -C /etc -cf - shells|gzip -c >"/tmp/fixes-summary.tar.gz" && tar -tzf "/tmp/fixes-summary.tar.gz"; true ; } > /tmp/a3/7jdgr
+            echo "gate nebula-alpha: $(wc -c </tmp/a3/7jdgr) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '7jdgr'
+  topic-thread-query-light:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Minute three decryption
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; ls -t --numeric-uid-gid -c -d --width=72 /usr/share; true ; } > /tmp/a3/spark-blob
+            echo "gate rust-release: $(wc -c </tmp/a3/spark-blob) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'spark-blob'
+  bastion-uat-73:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: 710 INPUT extraction kit
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; printf '%s\n' panda goose cat | while read -r w; do echo ${w^}; done; true ; } > /tmp/a3/102.0.124.134
+            echo "gate node20-bench: $(wc -c </tmp/a3/102.0.124.134) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - '102.0.124.134'
+  app--lg-5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: LIVE Rinse
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; ls /proc | grep -v '^[0-9]' | head -n 6 | sed 's/^/- /'; true ; } > /tmp/a3/f9667fdf-6dcb
+            echo "gate sep11-release: $(wc -c </tmp/a3/f9667fdf-6dcb) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'f9667fdf-6dcb'
+  cakstyntklaixo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Reduce the parcels
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; grep --no-messages --recursive --include='*.d' export /etc 2>/dev/null | wc -l; true ; } > /tmp/a3/shader-peer-grove
+            echo "gate bun-bench: $(wc -c </tmp/a3/shader-peer-grove) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'shader-peer-grove'
+  IFooter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a3
+      - run:
+          name: Scan during the deadline
+          command: |
+            mkdir -p /tmp/a3
+            { set +o pipefail 2>/dev/null; echo "removed old files" 1>/tmp/inventory.out 2>/tmp/sheet.md && cat /tmp/inventory.out; true ; } > /tmp/a3/a16d8233062e0d4a4fa06
+            echo "gate fix-retry: $(wc -c </tmp/a3/a16d8233062e0d4a4fa06) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a3
+          paths:
+            - 'a16d8233062e0d4a4fa06'
+workflows:
+  build:
+    jobs:
+      - can_update
+      - slot_cancel
+      - oct9-rev:
+          requires:
+            - can_update
+            - slot_cancel
+      - tweak-parse-bug:
+          requires:
+            - can_update
+            - slot_cancel
+      - qa:
+          requires:
+            - can_update
+            - slot_cancel
+      - sirius-v2:
+          requires:
+            - can_update
+            - slot_cancel
+      - gating:
+          requires:
+            - can_update
+            - slot_cancel
+      - hotfix-5433:
+          requires:
+            - can_update
+            - slot_cancel
+      - oct15-smoke:
+          requires:
+            - can_update
+            - slot_cancel
+      - RUN_QA:
+          requires:
+            - can_update
+            - slot_cancel
+      - vega:
+          requires:
+            - can_update
+            - slot_cancel
+      - bool_str
+      - mark15:
+          requires:
+            - bool_str
+      - ivan-ship:
+          requires:
+            - mark15
+      - Order-Motor-Iterator:
+          requires:
+            - mark15
+      - Done-Hot-Total:
+          requires:
+            - Order-Motor-Iterator
+      - update-login-bug:
+          requires:
+            - Done-Hot-Total
+      - ian2003:
+          requires:
+            - Done-Hot-Total
+      - proFixtureEntry:
+          requires:
+            - ian2003
+      - wip-dashboard:
+          requires:
+            - proFixtureEntry
+      - sqrt-19:
+          requires:
+            - proFixtureEntry
+      - weightsArray:
+          requires:
+            - sqrt-19
+      - VERIFY_DEV:
+          requires:
+            - weightsArray
+      - ramen_ash_emit_internal_yogurt:
+          requires:
+            - weightsArray
+      - yoyo-timer-tuple:
+          requires:
+            - ramen_ash_emit_internal_yogurt
+      - rm-parse-hang:
+          requires:
+            - yoyo-timer-tuple
+      - buff3r:
+          requires:
+            - yoyo-timer-tuple
+      - nav_const_attrs:
+          requires:
+            - buff3r
+      - bun-lint:
+          requires:
+            - nav_const_attrs
+      - lock_total
+      - Ia9qvSKf:
+          requires:
+            - lock_total
+      - produce-end-to-end-regression-suite:
+          requires:
+            - Ia9qvSKf
+      - motor-callback-record:
+          requires:
+            - Ia9qvSKf
+      - device400:
+          requires:
+            - motor-callback-record
+      - zed-ship:
+          requires:
+            - device400
+      - initWithPath:
+          requires:
+            - device400
+      - Job1998:
+          requires:
+            - initWithPath
+      - uma-run:
+          requires:
+            - Job1998
+      - fname-46075
+      - v8_4_84:
+          requires:
+            - fname-46075
+      - min-build:
+          requires:
+            - v8_4_84
+      - decryptRemoteBusGlobal:
+          requires:
+            - v8_4_84
+      - DBFactory:
+          requires:
+            - decryptRemoteBusGlobal
+      - intergration-25:
+          requires:
+            - DBFactory
+      - petebot:
+          requires:
+            - DBFactory
+      - undoreduce:
+          requires:
+            - petebot
+      - update-oauth:
+          requires:
+            - undoreduce
+      - Spark:
+          requires:
+            - undoreduce
+      - clientScarlet:
+          requires:
+            - Spark
+      - io-final:
+          requires:
+            - clientScarlet
+      - blend-spring-cluster-lion:
+          requires:
+            - clientScarlet
+      - diff_split_wrench_gadget:
+          requires:
+            - blend-spring-cluster-lion
+      - nova-rev:
+          requires:
+            - diff_split_wrench_gadget
+      - aesProjectPacket:
+          requires:
+            - diff_split_wrench_gadget
+      - lvlHud:
+          requires:
+            - aesProjectPacket
+      - alpha-9:
+          requires:
+            - lvlHud
+      - hitAnim
+      - token_21102023:
+          requires:
+            - hitAnim
+      - nebula-alpha:
+          requires:
+            - token_21102023
+      - DISABLE_SHIM:
+          requires:
+            - token_21102023
+      - topic-thread-query-light:
+          requires:
+            - DISABLE_SHIM
+      - rust-release:
+          requires:
+            - topic-thread-query-light
+      - tryAttach:
+          requires:
+            - topic-thread-query-light
+      - bastion-uat-73:
+          requires:
+            - tryAttach
+      - node20-bench:
+          requires:
+            - bastion-uat-73
+      - bitBuf:
+          requires:
+            - bastion-uat-73
+      - app--lg-5:
+          requires:
+            - bitBuf
+      - sep11-release:
+          requires:
+            - app--lg-5
+      - AESTrait:
+          requires:
+            - app--lg-5
+      - cakstyntklaixo:
+          requires:
+            - AESTrait
+      - bun-bench:
+          requires:
+            - cakstyntklaixo
+      - normalFn:
+          requires:
+            - cakstyntklaixo
+      - IFooter:
+          requires:
+            - normalFn
+      - fix-retry:
+          requires:
+            - IFooter
